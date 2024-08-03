@@ -1,3 +1,16 @@
+const express = require('express');
+const router = express.Router();
+const User = require('../models/UserModel');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express();
+
+app.use(bodyParser.json());
+app.use(cors());
+
+
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
     try {
